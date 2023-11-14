@@ -37,14 +37,14 @@ function Footer(){
     container.append(row);
     //Styles
     //Row
-    row.classList.add('w-full');
+    row.classList.add('w:max:full');
     row.classList.add('flex');
-    row.classList.add('even');
-    row.classList.add('text-white');
+    row.classList.add('around');
+    row.classList.add('text:white');
     //Footer (Container)
     container.classList.add('bg-sunset');
     container.classList.add('h-45');
-    container.classList.add('w-full');
+    container.classList.add('w:max:full');
     container.classList.add('back');
     container.classList.add('anim:bg:alive');
     
@@ -55,5 +55,7 @@ function Footer(){
     //Return footer
     return container;
 }
+
+
 
 exports.Footer = Footer();

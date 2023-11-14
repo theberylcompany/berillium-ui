@@ -1,3 +1,16 @@
+let heading = 'Heading';
+let subheading = 'Subheading';
+let content = 'This is some content';
+let button = 'Click Here';
+
+const heroDemo = `
+    <div>
+        <h2>${heading}</h2>
+        <span>${subheading}</span>
+        <p>${content}</p>
+        <button>${button}</button>
+    </div>
+`;
 function Hero(){
     //Create page elements
     const container = document.createElement('div');

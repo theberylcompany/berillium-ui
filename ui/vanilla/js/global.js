@@ -4,7 +4,7 @@ window.myModules = {};
 window.functions = {};
 window.variables = {};
 
-window.include = async function(url, module){
+window.goget = async function(url, module){
    try { 
       const data = await fetch(url);
       const content = await data.text();
@@ -20,6 +20,23 @@ window.include = async function(url, module){
    }
    
 };
+
+window.include = (url, module) => {
+   if(new URL(url, window.location.href).origin !== window.location.origin){
+      console.error(`ERROR: Included modules must come from same origin: ${url}`);
+      return;
+   }
+
+   const script = document.createElement('script');
+   script.src = url;
+   script.onload = () => {
+      console.log(`Module ${moduleName} loaded`);
+   } 
+   script.onerror = () => {
+      console.error(`Error loading module from ${url}`);
+   }
+   document.head.appendChild(script);
+}
 
 window.require = function(globalName, name){
    return window[globalName][name] || null;
